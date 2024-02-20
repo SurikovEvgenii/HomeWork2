@@ -30,7 +30,12 @@ public class Client1 {
                     responce = bufferedReader.readLine();
 
                     if(!(responce.equalsIgnoreCase("Disconnect"))){
-                        System.out.println(responce);
+                        if(!(responce.equalsIgnoreCase("Max quotes"))){
+                            System.out.println(responce);
+                        } else {
+                            System.out.println("The maximum number of requests has been reached. Disconnect...");
+                            break;
+                        }
                     } else {
                         System.out.println("The maximum number of users " +
                                 "on the server has been reached. Try to connect again");
