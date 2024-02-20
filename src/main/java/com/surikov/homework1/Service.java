@@ -8,6 +8,6 @@ public class Service {
     }
 
     public void info(){
-        System.out.println(getClass().getName());
+        System.out.println(this.getClass().getSimpleName());
     }
 }
