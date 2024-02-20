@@ -15,6 +15,7 @@ public class ServerThread extends Thread {
     private Date date;
     private SimpleDateFormat simpleDateFormat;
     private String hostName;
+    private Scanner scanner;
 
     public ServerThread(Socket socket) {
         try {
@@ -25,6 +26,7 @@ public class ServerThread extends Thread {
             fileWriter = new FileWriter(logFile,true);
             date = new Date();
             simpleDateFormat = new SimpleDateFormat();
+            scanner = new Scanner(System.in);
 
             if(!(logFile.exists())) {
                 logFile.createNewFile();
