@@ -37,6 +37,9 @@ public class ServerThread extends Thread {
 
     @Override
     public void run() {
+
+        int countQuotesForOneUser = 0;
+
         try {
             if(Server.userCounter>Util.MAX_COUNT_USERS){
                 printStream.println("Disconnect");
@@ -44,6 +47,11 @@ public class ServerThread extends Thread {
                 while (!(bufferedReader.readLine().equalsIgnoreCase("exit"))) {
                     int i = (int)(Math.random()*Quotes.quotes.size());
                     printStream.println(Quotes.quotes.get(i));
+                    countQuotesForOneUser++;
+                    if(countQuotesForOneUser>Util.MAX_QOUTES_FOR_ONE_USER){
+                        printStream.println("Max quotes");
+                        break;
+                    }
                 }
             }
         } catch (IOException e) {
